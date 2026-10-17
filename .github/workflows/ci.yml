@@ -20,9 +20,9 @@ jobs:
       - name: Check required files exist
         run: |
           required_files=(
-            "docs/ERD.png"
-            "docs/API-Endpoint-Plan.md"
-            "docs/RaceDay_Schema.sql"
+            "docs/POE1 SECTION A.pdf"
+            "docs/POE1 SECTION B.pdf"
+            "docs/POE part 1.sql"
           )
           missing=0
           for file in "${required_files[@]}"; do
