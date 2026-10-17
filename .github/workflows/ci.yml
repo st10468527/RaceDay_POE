@@ -1,38 +1,43 @@
 name: Validate Repo Structure
+
 on:
   push:
   pull_request:
+
 jobs:
   check-structure:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Check docs folder exists
         run: |
           if [ ! -d "docs" ]; then
-              echo "ERROR: docs folder is missing."
-              exit 1
-            fi
-            echo "docs folder found."
-            
+            echo "ERROR: docs folder is missing."
+            exit 1
+          fi
+          echo "docs folder found."
+
       - name: Check required files exist
         run: |
-          required_files=(
-            "docs/POE1 SECTION A.pdf"
-            "docs/POE1 SECTION B.pdf"
-            "docs/POE part 1.sql"
-          )
           missing=0
-          for file in "${required_files[@]}"; do
-          if [ ! -f "$file" ]; then
-          echo "ERROR: Missing required file: $file"
-          missing=1
-          else
-          echo "Found: $file"
-          fi
+          for name in "POE1 SECTION A" "POE1 SECTION B" "POE part 1"; do
+            if [ -z "$(find docs -maxdepth 1 -type f -iname "$name*" -print -quit)" ]; then
+              echo "ERROR: No file starting with '$name' found in docs"
+              missing=1
+            else
+              echo "Found: $name"
+            fi
           done
           if [ "$missing" -eq 1 ]; then
-          exit 1
-            fi
+            exit 1
+          fi
+
+      - name: Check SQL script exists
+        run: |
+          if [ -z "$(find docs -maxdepth 1 -type f -iname '*.sql' -print -quit)" ]; then
+            echo "ERROR: No .sql file found in docs."
+            exit 1
+          fi
+          echo "SQL script found."
