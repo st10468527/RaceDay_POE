@@ -14,3 +14,4 @@ $ git commit -m "Created database for part 2 and connected it successfully"
 $ git commit -m "Add EF Core models, DbContext and initial migration"
 $ git commit -m "Add session-based role check filter"
 $ git commit -m "Add register, login and logout endpoints with password hashing"
+$ git commit -m Add Events controller with Organiser ownership chec
