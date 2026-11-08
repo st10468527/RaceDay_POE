@@ -20,3 +20,4 @@ $ git commit -m Add Events controller with Organiser ownership chec
 $ git commit -m "created the database for part 3"
 $ git commit - m "added links to the the storage"
 $ git commit -m "edited the database for part 3"
+$ git commit -m "added profilePictureUrl to tyhe database"
