@@ -29,3 +29,4 @@ $ git commit -m "as instructed by the lecturer, images are stored in wwwroot and
 $ git commit -m "added a Services folder"
 $ git commit -m "created an image storage class within the service folder"
 $ git commit -m "added an image controller within the controller folder"
+$ git commit -m "running into issues with the MVC"
