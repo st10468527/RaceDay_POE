@@ -426,3 +426,6 @@ FodyWeavers.xsd
 
 # Official VS Code C# Dev Kit Extension exclusion
 #*.lscache
+
+part3/RaceDay/wwwroot/uploads/*
+!part3/RaceDay/wwwroot/uploads/.gitkeep
