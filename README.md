@@ -19,3 +19,4 @@ $ git commit -m "Developed the GetMyResults endpoint within the ResultsControlle
 $ git commit -m "Configured the AuthController, CategoriesController, EnrolmentsController, and EventsController routing and business logic to support database interactions."
 $ git commit -m "Created and mapped strong-typed DTOs (AuthResponseDto and ResultResponseDto) within the RaceDay.Web project to safely handle JSON deserialization from the Web API."
 $ git commit -m "Structured the solution architecture to cleanly separate concerns between the .NET 8.0 MVC web layer (RaceDay.Web) and the backend service layer (RaceDay.Api)."
+$ git commit -m "Implemented a custom athletic UI theme inside site.css with responsive layout grids and modern visual styling"
