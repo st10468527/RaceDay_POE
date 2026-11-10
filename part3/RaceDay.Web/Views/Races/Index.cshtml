@@ -1,0 +1,73 @@
+﻿@model IEnumerable<RaceDay.Web.Models.RaceViewModel>
+
+@{
+    ViewData["Title"] = "Upcoming Races";
+}
+
+<div class="container mt-4">
+    <!-- Hero Banner -->
+    <div class="hero-section text-center text-md-start d-md-flex justify-content-between align-items-center">
+        <div>
+            <h1 class="display-5 fw-bold mb-2"><i class="bi bi-flag-fill text-primary me-2"></i>Upcoming Races</h1>
+            <p class="lead text-slate-300 mb-0">Browse scheduled events, find your next challenge, and secure your spot on the starting line.</p>
+        </div>
+        @if (User.IsInRole("Organiser"))
+        {
+            <div class="mt-3 mt-md-0">
+                <a asp-action="Create" class="btn btn-primary btn-lg shadow-sm">
+                    <i class="bi bi-plus-circle me-1"></i> Create New Race
+                </a>
+            </div>
+        }
+    </div>
+
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var race in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-top border-4 border-primary">
+                        <div class="card-body d-flex flex-column p-4">
+                            <h4 class="card-title">@race.Name</h4>
+
+                            <h6 class="card-subtitle mb-3 text-muted d-flex align-items-center">
+                                <i class="bi bi-calendar-event me-2 text-primary"></i>
+                                @race.Date.ToString("MMMM dd, yyyy")
+                            </h6>
+
+                            <p class="card-text mb-2">
+                                <i class="bi bi-geo-alt-fill text-danger me-1"></i>
+                                <strong>Location:</strong> @race.Location
+                            </p>
+
+                            <p class="card-text text-secondary small flex-grow-1">@race.Description</p>
+
+                            <!-- Show Register button only for Participants -->
+                            @if (User.IsInRole("Participant"))
+                            {
+                                <div class="mt-auto pt-3 border-top">
+                                    <form asp-action="Register" asp-route-id="@race.Id" method="post">
+                                        <button type="submit" class="btn btn-outline-primary w-100 py-2">
+                                            <i class="bi bi-check-circle me-1"></i> Register for Race
+                                        </button>
+                                    </form>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-light text-center py-5 shadow-sm border rounded-3">
+                    <i class="bi bi-calendar-x display-4 text-muted mb-3 d-block"></i>
+                    <h5 class="text-dark fw-bold">No Races Available</h5>
+                    <p class="text-muted mb-0">There are currently no races scheduled or unable to connect to the server.</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
