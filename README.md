@@ -21,3 +21,4 @@ $ git commit -m "Created and mapped strong-typed DTOs (AuthResponseDto and Resul
 $ git commit -m "Structured the solution architecture to cleanly separate concerns between the .NET 8.0 MVC web layer (RaceDay.Web) and the backend service layer (RaceDay.Api)."
 $ git commit -m "Implemented a custom athletic UI theme inside site.css with responsive layout grids and modern visual styling"
 $ git commit -m "Integrated Bootstrap Icons and updated _Layout.cshtml for dynamic navigation and user role presentation."
+$ git commit -m "Created and polished responsive Index.cshtml views for both Races and Results."
