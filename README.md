@@ -17,3 +17,4 @@ $ git commit -m "Add register, login and logout endpoints with password hashing"
 $ git commit -m Add Events controller with Organiser ownership chec
 $ git commit -m "Developed the GetMyResults endpoint within the ResultsController to query and serve participant-specific data securely."
 $ git commit -m "Configured the AuthController, CategoriesController, EnrolmentsController, and EventsController routing and business logic to support database interactions."
+$ git commit -m "Created and mapped strong-typed DTOs (AuthResponseDto and ResultResponseDto) within the RaceDay.Web project to safely handle JSON deserialization from the Web API."
